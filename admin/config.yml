@@ -1,0 +1,313 @@
+# Éditeur du Plat du jour — Cave Valaisanne
+# Les semaines sont enregistrées dans le dépôt PRIVÉ ci-dessous (brouillons inclus).
+# Le site public ne reçoit que les semaines « Publié », via l'action GitHub du dépôt privé.
+backend:
+  name: github
+  repo: Mituyee/cave-valaisanne-contenu
+  branch: main
+  commit_messages:
+    create: 'Plat du jour : nouvelle semaine {{slug}}'
+    update: 'Plat du jour : mise à jour {{slug}}'
+    delete: 'Plat du jour : suppression {{slug}}'
+    uploadMedia: 'Plat du jour : photo {{path}}'
+    deleteMedia: 'Plat du jour : suppression photo {{path}}'
+media_folder: images/plats-du-jour
+public_folder: /images/plats-du-jour
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 1600
+          height: 1600
+collections:
+- name: plats-du-jour
+  label: Plats du jour
+  label_singular: Semaine
+  description: 'Une fiche par semaine (lundi → week-end). Laissez « Brouillon » pendant la saisie : rien n''apparaît sur le site. Passez à « Publié » puis Enregistrer pour mettre en ligne.'
+  folder: plats-du-jour
+  format: json
+  extension: json
+  create: true
+  slug: '{{semaine | date(''YYYY-MM-DD'')}}'
+  identifier_field: semaine
+  summary: Semaine du {{semaine | date('DD.MM.YYYY')}} · {{statut}}
+  sortable_fields:
+  - semaine
+  fields:
+  - name: semaine
+    label: Semaine
+    hint: Choisissez le lundi (n'importe quel jour de la semaine est accepté).
+    widget: datetime
+    time_format: false
+    date_format: DD.MM.YYYY
+    format: YYYY-MM-DD
+  - name: statut
+    label: Statut
+    widget: select
+    default: brouillon
+    options:
+    - label: Brouillon — invisible sur le site
+      value: brouillon
+    - label: Publié — visible sur le site
+      value: publie
+  - name: note
+    label: Note pour toute la semaine
+    widget: string
+    required: false
+    default: Servi avec une salade verte
+  - name: lundi
+    label: Lundi
+    widget: object
+    collapsed: false
+    fields:
+    - name: indisponible
+      label: Indisponible ce jour-là
+      widget: boolean
+      default: false
+    - name: plats
+      label: Plats
+      label_singular: plat
+      widget: list
+      required: false
+      summary: '{{fields.nom}} — {{fields.prix}} CHF'
+      fields:
+      - name: nom
+        label: Nom du plat
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: accompagnement
+        label: Accompagnement
+        widget: string
+        required: false
+      - name: prix
+        label: Prix (CHF)
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.5
+        default: 20
+      - name: type
+        label: 'Type (facultatif : Entrée, Option végétarienne…)'
+        widget: string
+        required: false
+      - name: photo
+        label: Photo (facultatif)
+        widget: image
+        required: false
+  - name: mardi
+    label: Mardi
+    widget: object
+    collapsed: true
+    fields:
+    - name: indisponible
+      label: Indisponible ce jour-là
+      widget: boolean
+      default: false
+    - name: plats
+      label: Plats
+      label_singular: plat
+      widget: list
+      required: false
+      summary: '{{fields.nom}} — {{fields.prix}} CHF'
+      fields:
+      - name: nom
+        label: Nom du plat
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: accompagnement
+        label: Accompagnement
+        widget: string
+        required: false
+      - name: prix
+        label: Prix (CHF)
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.5
+        default: 20
+      - name: type
+        label: 'Type (facultatif : Entrée, Option végétarienne…)'
+        widget: string
+        required: false
+      - name: photo
+        label: Photo (facultatif)
+        widget: image
+        required: false
+  - name: mercredi
+    label: Mercredi
+    widget: object
+    collapsed: true
+    fields:
+    - name: indisponible
+      label: Indisponible ce jour-là
+      widget: boolean
+      default: false
+    - name: plats
+      label: Plats
+      label_singular: plat
+      widget: list
+      required: false
+      summary: '{{fields.nom}} — {{fields.prix}} CHF'
+      fields:
+      - name: nom
+        label: Nom du plat
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: accompagnement
+        label: Accompagnement
+        widget: string
+        required: false
+      - name: prix
+        label: Prix (CHF)
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.5
+        default: 20
+      - name: type
+        label: 'Type (facultatif : Entrée, Option végétarienne…)'
+        widget: string
+        required: false
+      - name: photo
+        label: Photo (facultatif)
+        widget: image
+        required: false
+  - name: jeudi
+    label: Jeudi
+    widget: object
+    collapsed: true
+    fields:
+    - name: indisponible
+      label: Indisponible ce jour-là
+      widget: boolean
+      default: false
+    - name: plats
+      label: Plats
+      label_singular: plat
+      widget: list
+      required: false
+      summary: '{{fields.nom}} — {{fields.prix}} CHF'
+      fields:
+      - name: nom
+        label: Nom du plat
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: accompagnement
+        label: Accompagnement
+        widget: string
+        required: false
+      - name: prix
+        label: Prix (CHF)
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.5
+        default: 20
+      - name: type
+        label: 'Type (facultatif : Entrée, Option végétarienne…)'
+        widget: string
+        required: false
+      - name: photo
+        label: Photo (facultatif)
+        widget: image
+        required: false
+  - name: vendredi
+    label: Vendredi
+    widget: object
+    collapsed: true
+    fields:
+    - name: indisponible
+      label: Indisponible ce jour-là
+      widget: boolean
+      default: false
+    - name: plats
+      label: Plats
+      label_singular: plat
+      widget: list
+      required: false
+      summary: '{{fields.nom}} — {{fields.prix}} CHF'
+      fields:
+      - name: nom
+        label: Nom du plat
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: accompagnement
+        label: Accompagnement
+        widget: string
+        required: false
+      - name: prix
+        label: Prix (CHF)
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.5
+        default: 20
+      - name: type
+        label: 'Type (facultatif : Entrée, Option végétarienne…)'
+        widget: string
+        required: false
+      - name: photo
+        label: Photo (facultatif)
+        widget: image
+        required: false
+  - name: weekend
+    label: Samedi & dimanche
+    widget: object
+    collapsed: true
+    fields:
+    - name: indisponible
+      label: Indisponible ce week-end
+      widget: boolean
+      default: false
+    - name: plats
+      label: Plats
+      label_singular: plat
+      widget: list
+      required: false
+      summary: '{{fields.nom}} — {{fields.prix}} CHF'
+      fields:
+      - name: nom
+        label: Nom du plat
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+        required: false
+      - name: accompagnement
+        label: Accompagnement
+        widget: string
+        required: false
+      - name: prix
+        label: Prix (CHF)
+        widget: number
+        value_type: float
+        min: 0
+        step: 0.5
+        default: 26
+      - name: type
+        label: 'Type (facultatif : Entrée, Option végétarienne…)'
+        widget: string
+        required: false
+      - name: photo
+        label: Photo (facultatif)
+        widget: image
+        required: false

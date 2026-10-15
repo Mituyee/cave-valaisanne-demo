@@ -1,0 +1,105 @@
+{
+ "schema": "cave.platdujour/1",
+ "timezone": "Europe/Zurich",
+ "changeoverHour": 4,
+ "currency": "CHF",
+ "demo": true,
+ "generatedAt": "2026-10-15T00:46:01.434Z",
+ "weeks": [
+  {
+   "monday": "2026-10-12",
+   "note": "Servi avec une salade verte",
+   "days": [
+    {
+     "key": "lundi",
+     "dates": [
+      "2026-10-12"
+     ],
+     "unavailable": false,
+     "dishes": [
+      {
+       "name": "Onglet de bœuf à la plancha",
+       "price": 20,
+       "description": "Sauce béarnaise",
+       "sides": "Pommes fondantes, haricots verts"
+      }
+     ]
+    },
+    {
+     "key": "mardi",
+     "dates": [
+      "2026-10-13"
+     ],
+     "unavailable": false,
+     "dishes": [
+      {
+       "name": "Saucisse à rôtir",
+       "price": 20,
+       "description": "Sauce à l'échalote",
+       "sides": "Purée de pommes de terre, carottes"
+      }
+     ]
+    },
+    {
+     "key": "mercredi",
+     "dates": [
+      "2026-10-14"
+     ],
+     "unavailable": false,
+     "dishes": [
+      {
+       "name": "Choucroute sur assiette",
+       "price": 20,
+       "description": "Lard, vienne, palette, saucisson vaudois",
+       "sides": "Pommes vapeur"
+      }
+     ]
+    },
+    {
+     "key": "jeudi",
+     "dates": [
+      "2026-10-15"
+     ],
+     "unavailable": false,
+     "dishes": [
+      {
+       "name": "Émincé de poulet aux champignons",
+       "price": 20,
+       "sides": "Rösti maison, légumes du jour"
+      }
+     ]
+    },
+    {
+     "key": "vendredi",
+     "dates": [
+      "2026-10-16"
+     ],
+     "unavailable": false,
+     "dishes": [
+      {
+       "name": "Filets de perche",
+       "price": 20,
+       "description": "Sauce au citron",
+       "sides": "Pommes frites, gratin d'épinards"
+      }
+     ]
+    },
+    {
+     "key": "weekend",
+     "dates": [
+      "2026-10-17",
+      "2026-10-18"
+     ],
+     "unavailable": false,
+     "dishes": [
+      {
+       "name": "Caille farcie aux lardons et fruits secs",
+       "price": 26,
+       "sides": "Späzli, garniture chasse"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
